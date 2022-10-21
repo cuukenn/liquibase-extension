@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: changgg
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: varchar(50)
+              - column:
+                  name: lastname
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: state
+                  type: char(2)
+        - createIndex:
+            tableName: person
+            unique: true
+            indexName: ix_unique_name
+            columns:
+              - column:
+                  name: state
+        - createIndex:
+            tableName: person
+            unique: true
+            indexName: ix_unique_union_name
+            columns:
+              - column:
+                  name: firstname
+              - column:
+                  name: lastname
+                  descending: true
+
