@@ -8,7 +8,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <url>https://github.com/cuukenn/liquibase-extension</url>
   <modules>
-    <module>extension-database-oceanbase</module>
+    <module>extension-oceanbase</module>
   </modules>
   <packaging>pom</packaging>
   <properties>
@@ -22,6 +22,9 @@
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     <!-- *************************三方依赖版本号**************************************-->
     <liquibase.version>4.8.0</liquibase.version>
+    <mysql.version>5.1.47</mysql.version>
+    <snakeyaml.version>1.27</snakeyaml.version>
+    <junit.version>5.8.2</junit.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -30,12 +33,36 @@
         <artifactId>liquibase-core</artifactId>
         <version>${liquibase.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>${snakeyaml.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <licenses>
     <license>
-      <name>The MIT License (MIT)</name>
-      <url>https://github.com/cuukenn/liquibase-extension/blob/master/LICENSE</url>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
     </license>
   </licenses>
   <developers>
